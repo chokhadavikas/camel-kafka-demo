@@ -1,0 +1,26 @@
+server:
+  port: 8082
+
+spring:
+  main:
+    banner-mode: "console"
+
+camel:
+  springboot:
+    name: camel-kafka-integration
+
+  component:
+    kafka:
+      brokers: "localhost:9092"
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+  rest:
+    component: servlet
+
+app:
+  topics:
+    orders: orders
+    ordersDlq: orders.dlq
